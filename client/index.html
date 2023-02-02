@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>The virtual pet</title>
+    <link rel='stylesheet' href='style.css'>
+    <script src='index.js'></script>
+</head>
+
+<body>
+    <h1 id='Question'>What is your pet name?</h1>
+    <label for='Name?'></label>
+    <input id='userText'>
+
+    <button onclick='clickFunction()'>Enter</button>
+    <h1 id='entering'></h1>
+    <!-- <img  id = 'pet' src = 'images/pngegg.png' height = '350px' width= '350px' alt = 'An innocent purple animated pet'> -->
+    <svg width="268px" height="260px" viewBox="0 0 268 260" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <title>My virtual pet svg</title>
+        <defs>
+            <path
+                d="M1.41796875,236.621094 C9.86337135,225.715052 32.7243045,201.614095 34.15625,183.683594 C40.3647225,105.942488 16.8556686,54.9511169 84.2578125,11.4453125 C99.7034378,1.47568371 135.685354,-0.508836639 149.203125,1.66015625 C170.273875,5.0410618 207.974687,16.8316471 218.664063,40.890625 C220.752522,45.591199 221.281545,50.9094891 223.539063,55.53125 C224.220835,56.9270266 222.929194,49.4424346 223.539063,50.8710938 C235.414988,78.6912719 227.592571,76.0057407 228.390625,115.113281 C228.806136,135.474817 229.485448,155.887987 231.90625,176.109375 C233.728362,191.329803 241.317821,202.960255 249.894531,215.113281 C253.665318,220.45641 270.447728,235.80159 266.300781,245.855469 C262.26951,255.628903 221.947156,244.311235 212.472656,245.023438 C200.535066,245.920792 195.798734,257.591414 183.816406,258.660156 C135.091279,263.006106 244.721649,245.973221 135.476563,244.367188 C118.193703,244.113109 102.153174,253.651607 85.2421875,257.226562 C72.5543414,259.908753 64.3965102,248.479931 54.8085938,243.410156 C52.8593897,242.379481 50.4579163,242.268875 48.2617188,242.464844 C35.0818767,243.640895 22.0117188,245.826823 8.88671875,247.507812 L1.41796875,236.621094 Z"
+                id="path-1"></path>
+            <filter x="-3.3%" y="-2.5%" width="106.5%" height="106.6%" filterUnits="objectBoundingBox" id="filter-2">
+                <feMorphology radius="1.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1">
+                </feMorphology>
+                <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+                <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+                <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1">
+                </feComposite>
+                <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix"
+                    in="shadowBlurOuter1"></feColorMatrix>
+            </filter>
+        </defs>
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Path">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use stroke="#000000" stroke-width="3" fill="#7E00FF" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <ellipse id="Oval" stroke="#000000" stroke-width="4" fill="#D8D8D8" cx="70" cy="130.5" rx="43" ry="40.5">
+            </ellipse>
+            <ellipse id="Oval" stroke="#000000" stroke-width="2" fill="#000000" cx="75" cy="131" rx="30" ry="28">
+            </ellipse>
+            <path
+                d="M105.600576,159.692676 C106.249446,170.673131 104.58481,179.170059 111.343978,188.154767 C129.679423,212.527387 162.035358,185.331539 154.476001,160.21326 C153.973046,158.542041 150.216223,158.085864 149.352733,159.59721 C146.906515,163.878774 151.75708,196.329792 130.224695,194.451003 C127.485991,194.21204 124.747063,193.406556 122.299447,192.135223 C119.864831,190.870643 117.584413,189.132643 115.850045,186.984571 C108.891615,178.366325 109.6835,172.26959 107.653258,160.932233 L105.600576,159.692676 Z"
+                id="Path-2" stroke="#979797" fill="#FF0000"></path>
+            <ellipse id="Oval" stroke="#979797" cx="194" cy="130.5" rx="44.5" ry="42"></ellipse>
+            <circle id="Oval" stroke="#979797" fill="#FFFFFF" cx="75" cy="131" r="9.5"></circle>
+            <ellipse id="Oval" stroke="#000000" stroke-width="4" fill="#D8D8D8" cx="194" cy="130.5" rx="43" ry="40.5">
+            </ellipse>
+            <ellipse id="Oval" stroke="#000000" stroke-width="2" fill="#000000" cx="191" cy="131" rx="30" ry="28">
+            </ellipse>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="194" cy="131" r="9.5"></circle>
+        </g>
+    </svg>
+    <section>
+        <div class='stat'>
+            <meter id='hunger' min=0 max=100 value=0 low=20 high=45 optimum=50></meter>
+            <button id=hungerfeed>Feed</button>
+            <!-- </div>
+        <div class='stat'>
+            <div id='happiness'>
+            </div>
+            <div class='stat'>
+                <div id='cleanliness'>
+                </div>
+                <div class='stat'>
+                    <div id='sleep'>
+                    </div> -->
+    </section>
+</body>
+
+</html>

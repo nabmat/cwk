@@ -1,0 +1,56 @@
+body {
+    background-color: #34B4D9;
+    text-align: center;
+}
+
+.stat {
+    border: 5px solid black;
+    height: 10px;
+    width: 200px;
+    margin: 10px 10px 10px 10px;
+}
+
+ #hunger {
+
+    height: 20px;
+    width: 200.2px;
+    margin-top: -5px;
+    margin-right: 10px;
+    text-align: center;
+    float: left;
+} 
+/* This is the feed button */
+#hungerfeed {
+    position: relative;
+    right: -9.75em;
+    top: -1.5em;
+}
+
+
+
+/* #happiness {
+    height: inherit;
+    width: inherit;
+    background-color: yellow;
+    
+}
+
+#cleanliness {
+    height: inherit;
+    width: inherit;
+    background-color: darkblue;
+}
+
+#sleep {
+    height: inherit;
+    width: inherit;
+    background-color: purple;
+}
+
+
+
+
+#Question { 
+    font-weight: bold;
+ }  */
+
