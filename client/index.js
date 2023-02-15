@@ -1,38 +1,36 @@
-'use strict'
+'use strict';
 const pet = { hungerness: 0 };
 
 function clickFunction() {
-    let userText = document.querySelector('#userText');
-    let entering = document.querySelector('#entering');
-    entering.innerHTML = userText.value;
+  const userText = document.querySelector('#userText');
+  const entering = document.querySelector('#entering');
+  entering.innerHTML = userText.value;
 }
 
 function play() {
-    pet.hungerness = 100;
+  pet.hungerness = 100;
 }
 
 function adjustStuff() {
-    pet.hungerness = pet.hungerness - 1;
-    if (pet.hungerness < 0) {
-        pet.hungerness = 0;
-    }
-    // pet.hungerness = Math.max(0, --pet.hungerness);
-    adjustMeters();
+  pet.hungerness = pet.hungerness - 1;
+  if (pet.hungerness < 0) {
+    pet.hungerness = 0;
+  }
+  // pet.hungerness = Math.max(0, --pet.hungerness);
+  adjustMeters();
 }
 
 function adjustMeters() {
-    const hungerElem = document.querySelector('#hunger');
-    hungerElem.value = pet.hungerness;
+  const hungerElem = document.querySelector('#hunger');
+  hungerElem.value = pet.hungerness;
 }
 
 function init() {
-    pet.hungerness = 100;
-    window.setInterval(adjustStuff, 100);
-    const hungerFeedElem = document.querySelector('#hungerfeed');
-    hungerFeedElem.addEventListener('click', play);
+  pet.hungerness = 100;
+  window.setInterval(adjustStuff, 100);
+  const hungerFeedElem = document.querySelector('#hungerfeed');
+  hungerFeedElem.addEventListener('click', play);
 }
-
-
 
 
 // function hungerbarFeed() {
