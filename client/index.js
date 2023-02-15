@@ -10,12 +10,6 @@ function clickFunction() {
 function play() {
     pet.hungerness = 100;
 }
-function death(){
-    document.createElement("Your pet has died rip....")
-
-
-
-}
 
 function adjustStuff() {
     pet.hungerness = pet.hungerness - 1;
