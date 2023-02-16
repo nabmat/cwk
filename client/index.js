@@ -1,10 +1,12 @@
 'use strict';
+
+
 const pet = { hungerness: 0 };
 
 function clickFunction() {
   const userText = document.querySelector('#userText');
   const entering = document.querySelector('#entering');
-  entering.innerHTML = userText.value;
+  entering.textContent = userText.value;
 }
 
 function play() {
@@ -16,7 +18,6 @@ function adjustStuff() {
   if (pet.hungerness < 0) {
     pet.hungerness = 0;
   }
-  // pet.hungerness = Math.max(0, --pet.hungerness);
   adjustMeters();
 }
 
@@ -31,16 +32,6 @@ function init() {
   const hungerFeedElem = document.querySelector('#hungerfeed');
   hungerFeedElem.addEventListener('click', play);
 }
-
-
-// function hungerbarFeed() {
-//     const hunger = document.getElementById('hungerfeed');
-//     hunger.addEventListener('click', clickFeed,);
-// }
-// function clickFeed(){
-//     const low = document.getElementById('hunger');
-//     low.style.width='200px';
-// }
 
 
 window.addEventListener('load', init);
