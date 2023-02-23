@@ -6,7 +6,6 @@ function nameHandler() {
   nameElem.textContent = userText.value;
 }
 
-// Hunger bar
 
 const pet = {
   hungerness: 0,
@@ -101,29 +100,6 @@ function adjustCleanMeters() {
   cleanElem.value = pet.cleanliness;
 }
 
-// Happiness
-// function play() {
-//   pet.hungerness = 100;
-// }
-// pet.hungerness = 100;
-//   window.setInterval(adjustHunger, 100);
-//   const hungerFeedElem = document.querySelector('#hungerfeed');
-//   hungerFeedElem.addEventListener('click', play);
-
-
-//   function adjustHunger() {
-//     pet.hungerness = pet.hungerness - 0.25;
-//     if (pet.hungerness < 0) {
-//       pet.hungerness = 0;
-//     }
-//     updateHungerMeter();
-//   }
-
-
-//   function updateHungerMeter() {
-//     const hungerElem = document.querySelector('#hunger');
-//     hungerElem.value = pet.hungerness;
-//   }
 
 function playHappy() {
   pet.happiness = 100;
