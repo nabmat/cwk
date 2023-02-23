@@ -15,11 +15,6 @@ const pet = {
 };
 
 
-function play() {
-  pet.hungerness = 100;
-}
-
-
 function init() {
   const nameButton = document.querySelector('#setName');
   nameButton.addEventListener('click', nameHandler);
@@ -45,7 +40,7 @@ function init() {
   happyIncElem.addEventListener('click', playHappy);
 }
 
-
+// Sleep bar
 function playing() {
   pet.sleepiness = 100;
 }
@@ -58,6 +53,15 @@ function adjustSleep() {
   updateSleepMeter();
 }
 
+function updateSleepMeter() {
+  const sleepElem = document.querySelector('#sleep');
+  sleepElem.value = pet.sleepiness;
+}
+
+// Hunger bar
+function play() {
+  pet.hungerness = 100;
+}
 function adjustHunger() {
   pet.hungerness = pet.hungerness - 0.25;
   if (pet.hungerness < 0) {
@@ -71,16 +75,11 @@ function updateHungerMeter() {
   hungerElem.value = pet.hungerness;
 }
 
-function updateSleepMeter() {
-  const sleepElem = document.querySelector('#sleep');
-  sleepElem.value = pet.sleepiness;
-}
-
 
 init();
 
 
-// Clean
+// Clean bar
 
 
 function playingClean() {
