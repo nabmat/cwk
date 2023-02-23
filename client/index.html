@@ -4,17 +4,15 @@
 <head>
     <title>The virtual pet</title>
     <link rel='stylesheet' href='style.css'>
-    <script src='index.js'></script>
+    <script defer src='index.js' type ='module'></script>
 </head>
 
 <body>
-    <h1 id='Question'>What's your pet name?</h1>
-    <label for='Name?'></label>
+    <h1 id='petName'>What's your pet name?</h1>
+    <label for='Name'></label>
     <input id='userText'>
 
-    <button onclick='clickFunction()'>Enter</button>
-    <h1 id='entering'></h1>
-    <!-- <img  id = 'pet' src = 'images/pngegg.png' height = '350px' width= '350px' alt = 'An innocent purple animated pet'> -->
+    <button id="setName">Enter</button>
     <svg width="268px" height="260px" viewBox="0 0 268 260" version="1.1" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink">
         <title>My virtual pet svg</title>
@@ -58,16 +56,19 @@
         <div class='stat'>
             <meter id='hunger' min=0 max=100 value=0 low=20 high=45 optimum=50></meter>
             <button id=hungerfeed>Feed</button>
-            <!-- </div>
-        <div class='stat'>
-            <div id='happiness'>
-            </div>
-            <div class='stat'>
-                <div id='cleanliness'>
-                </div>
-                <div class='stat'>
-                    <div id='sleep'>
-                    </div> -->
+            <meter id='sleep' min=0 max=100 value=0 low=20 high=45 optimum=50></meter>
+            <button id=sleeping>Sleep</button>
+            <meter id='clean' min=0 max=100 value=0 low=20 high=45 optimum=50></meter>
+            <button id=cleaning>Clean</button>
+            <meter id='happy' min=0 max=100 value=0 low=20 high=45 optimum=50></meter>
+            <button id=hapiness>Happiness</button>
+
+
+
+
+</div>
+        </section>
+
     </section>
 </body>
 

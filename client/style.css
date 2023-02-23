@@ -19,6 +19,35 @@ body {
     text-align: center;
     float: left;
 } 
+#sleep {
+
+    height: 20px;
+    width: 200.2px;
+    margin-top: -5px;
+    margin-right: 10px;
+    text-align: center;
+    float: left;
+} 
+
+#clean {
+
+    height: 20px;
+    width: 200.2px;
+    margin-top: -5px;
+    margin-right: 10px;
+    text-align: center;
+    float: left;
+} 
+
+#happy {
+
+    height: 20px;
+    width: 200.2px;
+    margin-top: -5px;
+    margin-right: 10px;
+    text-align: center;
+    float: left;
+} 
 /* This is the feed button */
 #hungerfeed {
     position: relative;
@@ -41,16 +70,15 @@ body {
     background-color: darkblue;
 }
 
-#sleep {
+/* #sleep {
     height: inherit;
     width: inherit;
     background-color: purple;
-}
+} */
 
 
 
 
 #Question { 
     font-weight: bold;
- }  */
-
+  }
