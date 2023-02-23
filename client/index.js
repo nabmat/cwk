@@ -12,6 +12,7 @@ const pet = {
   hungerness: 0,
   sleepiness: 0,
   cleanliness: 0,
+  happiness: 0,
 };
 
 
@@ -19,24 +20,6 @@ function play() {
   pet.hungerness = 100;
 }
 
-
-// function addMeters() {
-//   const stat = document.querySelector('#stat');
-//   const meterNames = ['hunger', 'sleep', 'cleanliness', 'sleep'];
-//   for (const meterName of meterNames) {
-//     const meter = document.createElement('meter');
-//     meter.min = 0;
-//     meter.max = 100;
-//     meter.value = 0;
-//     meter.low = 20;
-//     meter.high = 45;
-//     meter.optimum = 50;
-
-
-//     meter.id = meterName;
-//     stat.append(meter);
-//   }
-// }
 
 function init() {
   const nameButton = document.querySelector('#setName');
@@ -56,6 +39,11 @@ function init() {
   window.setInterval(adjustClean, 100);
   const cleaningElem = document.querySelector('#cleaning');
   cleaningElem.addEventListener('click', playingClean);
+
+  pet.happiness = 100;
+  window.setInterval(adjustHappy, 100);
+  const happyIncElem = document.querySelector('#happiness');
+  happyIncElem.addEventListener('click', playHappy);
 }
 
 
@@ -111,4 +99,43 @@ function adjustClean() {
 function adjustCleanMeters() {
   const cleanElem = document.querySelector('#clean');
   cleanElem.value = pet.cleanliness;
+}
+
+// Happiness
+// function play() {
+//   pet.hungerness = 100;
+// }
+// pet.hungerness = 100;
+//   window.setInterval(adjustHunger, 100);
+//   const hungerFeedElem = document.querySelector('#hungerfeed');
+//   hungerFeedElem.addEventListener('click', play);
+
+
+//   function adjustHunger() {
+//     pet.hungerness = pet.hungerness - 0.25;
+//     if (pet.hungerness < 0) {
+//       pet.hungerness = 0;
+//     }
+//     updateHungerMeter();
+//   }
+
+
+//   function updateHungerMeter() {
+//     const hungerElem = document.querySelector('#hunger');
+//     hungerElem.value = pet.hungerness;
+//   }
+
+function playHappy() {
+  pet.happiness = 100;
+}
+function adjustHappy() {
+  pet.happiness = pet.happiness - 0.25;
+  if (pet.happiness < 0) {
+    pet.happiness = 0;
+  }
+  updateHappyMeter();
+}
+function updateHappyMeter() {
+  const happyElem = document.querySelector('#happy');
+  happyElem.value = pet.happiness;
 }
