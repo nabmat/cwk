@@ -1,4 +1,4 @@
-body {
+/* body {
     background-color: #34B4D9;
     text-align: center;
 }
@@ -49,11 +49,11 @@ body {
     float: left;
 } 
 /* This is the feed button */
-#hungerfeed {
+/* #hungerfeed {
     position: relative;
     right: -9.75em;
     top: -1.5em;
-}
+} */
 
 
 
@@ -79,6 +79,6 @@ body {
 
 
 
-#Question { 
+/* #Question { 
     font-weight: bold;
-  }
+  } */ 
