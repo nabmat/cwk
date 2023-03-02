@@ -59,6 +59,7 @@ function adjustSleep() {
   }
   updateSleepMeter();
   updateHappyMeter();
+  deathBoth();
 }
 function updateSleepMeter() {
   const sleepElem = document.querySelector('#sleep');
@@ -87,7 +88,7 @@ function adjustHunger() {
   }
   updateHungerMeter();
   updateHappyMeter();
-  death();
+  deathBoth();
 }
 
 function updateHungerMeter() {
@@ -121,24 +122,26 @@ function updateHappyMeter() {
 }
 
 
-// function death() {
-//   if (pet.hungerness === 0) {
-//     confirm('Your pet has died, press cancel or ok to restart');
-//     window.location.reload();
-//   }
-// }
-
-function death() {
-  if (pet.hungerness === 0) {
+function deathBoth() {
+  if (pet.hungerness === 0 && pet.sleepiness === 0) {
+    const petStatusBoth = document.querySelector('#petStatus');
+    petStatusBoth.textContent = 'Your pet has died due to hunger and lack of sleep, please refresh the page to continue playing';
+  } else if (pet.hungerness === 0) {
     document.querySelector('#hungerfeed').disabled = true;
     document.querySelector('#sleeping').disabled = true;
     document.querySelector('#cleaning').disabled = true;
     document.querySelector('#happiness').disabled = true;
     pet.happiness = 0;
-    const petStatus = document.querySelector('#petStatus');
-    petStatus.textContent = 'Your pet has died due to starvation, please refresh the page to continue playing';
+    const petStatusHunger = document.querySelector('#petStatus');
+    petStatusHunger.textContent = 'Your pet has died due to starvation, please refresh the page to continue playing';
+  } else if (pet.sleepiness === 0) {
+    document.querySelector('#sleeping').disabled = true;
+    document.querySelector('#hungerfeed').disabled = true;
+    document.querySelector('#cleaning').disabled = true;
+    document.querySelector('#happiness').disabled = true;
+    pet.happiness = 0;
+    const petStatusSleep = document.querySelector('#petStatus');
+    petStatusSleep.textContent = 'Your pet has died due to lack of sleep, please refresh the page to continue playing';
   }
 }
-
-
 init();
