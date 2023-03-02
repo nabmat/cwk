@@ -87,6 +87,7 @@ function adjustHunger() {
   }
   updateHungerMeter();
   updateHappyMeter();
+  death();
 }
 
 function updateHungerMeter() {
@@ -117,6 +118,26 @@ function adjustCleanMeters() {
 function updateHappyMeter() {
   const happyElem = document.querySelector('#happy');
   happyElem.value = pet.happiness;
+}
+
+
+// function death() {
+//   if (pet.hungerness === 0) {
+//     confirm('Your pet has died, press cancel or ok to restart');
+//     window.location.reload();
+//   }
+// }
+
+function death() {
+  if (pet.hungerness === 0) {
+    document.querySelector('#hungerfeed').disabled = true;
+    document.querySelector('#sleeping').disabled = true;
+    document.querySelector('#cleaning').disabled = true;
+    document.querySelector('#happiness').disabled = true;
+    pet.happiness = 0;
+    const petStatus = document.querySelector('#petStatus');
+    petStatus.textContent = 'Your pet has died due to starvation, please refresh the page to continue playing';
+  }
 }
 
 
