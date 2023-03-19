@@ -1,9 +1,12 @@
 'use strict';
+let start = false;
+
 
 function nameHandler() {
-  const userText = document.querySelector('#userText');
+  start = true;
+  const nameInputElem = document.querySelector('#userText');
   const nameElem = document.querySelector('#petName');
-  nameElem.textContent = userText.value;
+  nameElem.textContent = nameInputElem.value;
 }
 
 
@@ -14,11 +17,44 @@ const pet = {
   happiness: 0,
 };
 
-// const petValues = pet.cleanliness + pet.hungerness + pet.sleepiness;
+function originalValues() {
+  pet.happiness = 100;
+  pet.sleepiness = 100;
+  pet.cleanliness = 100;
+  pet.hungerness = 100;
+}
+
+
+let timer = 0;
+let petAlive;
+
+function adjustTimer() {
+  timer++;
+  if (pet.hungerness === 0 || pet.sleepiness === 0) {
+    clearInterval(petAlive);
+    alert('Your pet was alive for ' + timer + ' seconds');
+  }
+}
 
 function init() {
+  // get the name, display it, hide the name inputs
+  const checkInput = setInterval(checkStart, 1000);
   const nameButton = document.querySelector('#setName');
   nameButton.addEventListener('click', nameHandler);
+
+
+  function checkStart() {
+    if (start === true) {
+      clearInterval(checkInput);
+      startPet();
+      petAlive = setInterval(adjustTimer, 1000);
+    }
+  }
+}
+
+function startPet() {
+  originalValues();
+
 
   pet.sleepiness = 100;
   window.setInterval(adjustSleep, 100);
@@ -35,11 +71,7 @@ function init() {
   const cleaningElem = document.querySelector('#cleaning');
   cleaningElem.addEventListener('click', playingClean);
 
-
   pet.happiness = 100;
-  // window.setInterval(updateHappyMeter(), 100);
-  // const happyIncElem = document.querySelector('#happiness');
-  // happyIncElem.addEventListener('click', playHappy);
 }
 
 // Sleep bar
@@ -144,4 +176,8 @@ function deathBoth() {
     petStatusSleep.textContent = 'Your pet has died due to lack of sleep, please refresh the page to continue playing';
   }
 }
+
+
+// set interval to a varaible that starts at 0. set interval so that it calls a function multiple times and adds 1 to 0
+
 init();
