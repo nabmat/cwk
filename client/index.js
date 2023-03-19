@@ -57,17 +57,17 @@ function startPet() {
 
 
   pet.sleepiness = 100;
-  window.setInterval(adjustSleep, 100);
+  window.setInterval(decreaseSleep, 100);
   const sleepingElem = document.querySelector('#sleeping');
   sleepingElem.addEventListener('click', playing);
 
   pet.hungerness = 100;
-  window.setInterval(adjustHunger, 100);
+  window.setInterval(decreaseHunger, 100);
   const hungerFeedElem = document.querySelector('#hungerfeed');
   hungerFeedElem.addEventListener('click', feed);
 
   pet.cleanliness = 100;
-  window.setInterval(adjustClean, 100);
+  window.setInterval(decreaseClean, 100);
   const cleaningElem = document.querySelector('#cleaning');
   cleaningElem.addEventListener('click', playingClean);
 
@@ -80,7 +80,7 @@ function playing() {
   pet.happiness = 100;
 }
 
-function adjustSleep() {
+function decreaseSleep() {
   pet.sleepiness = pet.sleepiness - 0.1;
   pet.happiness = pet.happiness - 0.1;
   if (pet.sleepiness < 0) {
@@ -109,7 +109,7 @@ function playingClean() {
   pet.happiness = 100;
 }
 
-function adjustHunger() {
+function decreaseHunger() {
   pet.hungerness = pet.hungerness - 0.25;
   pet.happiness = pet.happiness - 0.1;
   if (pet.hungerness < 0) {
@@ -129,7 +129,7 @@ function updateHungerMeter() {
 }
 
 
-function adjustClean() {
+function decreaseClean() {
   pet.cleanliness = pet.cleanliness - 0.1;
   pet.happiness = pet.happiness - 0.1;
   if (pet.cleanliness < 0) {
@@ -176,8 +176,5 @@ function deathBoth() {
     petStatusSleep.textContent = 'Your pet has died due to lack of sleep, please refresh the page to continue playing';
   }
 }
-
-
-// set interval to a varaible that starts at 0. set interval so that it calls a function multiple times and adds 1 to 0
 
 init();
