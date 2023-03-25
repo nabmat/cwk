@@ -3,12 +3,17 @@ let start = false;
 
 
 function nameHandler() {
-  start = true;
   const nameInputElem = document.querySelector('#userText');
-  const nameElem = document.querySelector('#petName');
-  nameElem.textContent = nameInputElem.value;
+  const newName = nameInputElem.value;
+  if (nameInputElem.value.length === 0) {
+    alert('this id not a name');
+    // display error message
+  } else {
+    start = true;
+    localStorage.setItem('nameValue', newName);
+  }
+  updateName(newName);
 }
-
 
 const pet = {
   hungerness: 0,
@@ -16,6 +21,11 @@ const pet = {
   cleanliness: 0,
   happiness: 0,
 };
+
+function updateName(newName) {
+  const nameElem = document.querySelector('#petName');
+  nameElem.textContent = newName;
+}
 
 function originalValues() {
   pet.happiness = 100;
@@ -36,11 +46,29 @@ function adjustTimer() {
   }
 }
 
+
+function removeName() {
+  updateName('');
+  localStorage.removeItem('nameValue');
+  refreshPage();
+}
+const refresh = document.querySelector('#clearName');
+
+function refreshPage() {
+  window.location.reload();
+}
+refresh.addEventListener('click', refreshPage);
+
+
 function init() {
   // get the name, display it, hide the name inputs
   const checkInput = setInterval(checkStart, 1000);
   const nameButton = document.querySelector('#setName');
   nameButton.addEventListener('click', nameHandler);
+  if (localStorage.getItem('nameValue')) {
+    const nameElem1 = document.querySelector('#petName');
+    nameElem1.textContent = localStorage.getItem('nameValue');
+  }
 
 
   function checkStart() {
@@ -72,6 +100,10 @@ function startPet() {
   cleaningElem.addEventListener('click', playingClean);
 
   pet.happiness = 100;
+
+
+  const removeNameElem = document.querySelector('#clearName');
+  removeNameElem.addEventListener('click', removeName);
 }
 
 // Sleep bar
