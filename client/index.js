@@ -10,17 +10,23 @@ function nameHandler() {
     // display error message
   } else {
     start = true;
-    localStorage.setItem('nameValue', newName);
+    localStorage.setItem('nameValue', newName); // if pet stored, this redundant
   }
   updateName(newName);
 }
 
-const pet = {
+let pet = {
   hungerness: 0,
   sleepiness: 0,
   cleanliness: 0,
   happiness: 0,
 };
+
+let timer = 0; // should be param of pet
+let petAlive;
+let checkInput;
+let savePetTimer;
+
 
 function updateName(newName) {
   const nameElem = document.querySelector('#petName');
@@ -34,10 +40,6 @@ function originalValues() {
   pet.hungerness = 100;
 }
 
-
-let timer = 0;
-let petAlive;
-
 function adjustTimer() {
   timer++;
   if (pet.hungerness === 0 || pet.sleepiness === 0) {
@@ -49,39 +51,56 @@ function adjustTimer() {
 
 function removeName() {
   updateName('');
-  localStorage.removeItem('nameValue');
+  localStorage.removeItem('nameValue'); // this too is redundant
   refreshPage();
 }
-const refresh = document.querySelector('#clearName');
 
 function refreshPage() {
   window.location.reload();
 }
-refresh.addEventListener('click', refreshPage);
 
 
 function init() {
+  const refresh = document.querySelector('#clearName');
+  refresh.addEventListener('click', refreshPage);
+
   // get the name, display it, hide the name inputs
-  const checkInput = setInterval(checkStart, 1000);
+  checkInput = setInterval(checkStart, 1000);
   const nameButton = document.querySelector('#setName');
   nameButton.addEventListener('click', nameHandler);
-  if (localStorage.getItem('nameValue')) {
+  if (localStorage.getItem('nameValue')) { // would be replaced with pet beint stored
     const nameElem1 = document.querySelector('#petName');
     nameElem1.textContent = localStorage.getItem('nameValue');
   }
 
+  savePetTimer = setInterval(savePet, 10000);
+  // this should be every 10 seconds
+}
 
-  function checkStart() {
-    if (start === true) {
-      clearInterval(checkInput);
-      startPet();
-      petAlive = setInterval(adjustTimer, 1000);
-    }
+let savePet = localStorage.setItem('myPet', JSON.stringify(pet));
+
+function checkStart() {
+  if (start === true) {
+    clearInterval(checkInput);
+    startPet();
+    petAlive = setInterval(adjustTimer, 1000);
   }
 }
 
 function startPet() {
-  originalValues();
+  // check if pet exists in local storage
+  pet = JSON.parse(localStorage.getItem('myPet'));
+  console.log(pet);
+  if (savePet === false) {
+    originalValues();
+  } else {
+    savePet = true;
+  }
+  // if (savePet === false) {
+  //   originalValues();
+  // } else {
+  //   savePet = true;
+  // }
 
 
   pet.sleepiness = 100;
@@ -206,6 +225,7 @@ function deathBoth() {
     pet.happiness = 0;
     const petStatusSleep = document.querySelector('#petStatus');
     petStatusSleep.textContent = 'Your pet has died due to lack of sleep, please refresh the page to continue playing';
+    clearInterval(savePetTimer);
   }
 }
 
