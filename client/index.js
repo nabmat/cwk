@@ -1,6 +1,7 @@
 'use strict';
 let start = false;
 
+
 /** Displays the name entered and saves it in the local storage.
  * Also displays it in HTML in this case.
  * Displays an error message if name has not been entered.
@@ -17,6 +18,7 @@ function nameHandler() {
     pet.name = newName;
     localStorage.setItem('myPet', JSON.stringify(pet));
     window.setInterval(savePet, 1000);
+    hideElem();
   }
   if (pet.happiness === null) {
     originalValues();
@@ -24,6 +26,10 @@ function nameHandler() {
   updateName(newName);
 }
 
+function hideElem() {
+  document.querySelector('#setName').style.visibility = 'hidden';
+  document.querySelector('#userText').style.visibility = 'hidden';
+}
 /** Creates a new pet. All attributes are set to 0. */
 function newPet() {
   return {
@@ -72,7 +78,6 @@ function refreshPage() {
 
 
 function init() {
-
   const refresh = document.querySelector('#clearName');
   refresh.addEventListener('click', refreshPage);
   // get the name, display it, hide the name inputs
