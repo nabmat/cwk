@@ -78,7 +78,7 @@ function refreshPage() {
 
 
 function init() {
-  const refresh = document.querySelector('#clearName');
+  const refresh = document.querySelector('#resetPet');
   refresh.addEventListener('click', refreshPage);
   // get the name, display it, hide the name inputs
 
@@ -133,7 +133,7 @@ function startPet() {
   cleaningElem.addEventListener('click', playingClean);
 
   // pet.happiness = 100;
-  const removeNameElem = document.querySelector('#clearName');
+  const removeNameElem = document.querySelector('#resetPet');
   removeNameElem.addEventListener('click', removeName);
 }
 // Sleep bar
