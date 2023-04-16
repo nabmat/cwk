@@ -116,7 +116,7 @@
 }
 
 #petStatus {
-    font-size: 50px;
+    font-size: 47px;
 }
 
 .stat {
@@ -186,7 +186,7 @@
     border: 2px solid lightblue;
     margin-top: 10px;
 }
-
+ 
 
 .item-6 {
     grid-area: 3 / 4 / 4 / 6;
@@ -208,7 +208,7 @@
     width: 300px;
     font-size: 50px;
     border: 3px solid black;
-    margin-top: 10px;
+    margin-top: 50px;
 }
 
 #setName{
@@ -217,7 +217,7 @@ width: 150px;
 font-size: 40px;
 background-color: #e5f5f4 ;
 border-radius: 10px;
-margin-top: 10px;
+margin-top: 50px;
 }
 
 
