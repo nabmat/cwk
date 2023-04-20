@@ -9,6 +9,7 @@ let start = false;
 function nameHandler() {
   const nameInputElem = document.querySelector('#userText');
   const newName = nameInputElem.value;
+  const userName = document.querySelector('#userName');
   if (nameInputElem.value.length === 0) {
     alert('this id not a name');
     // display error message
@@ -16,6 +17,7 @@ function nameHandler() {
     start = true;
     pet = newPet();
     pet.name = newName;
+    userName.textContent = newName + '\'s' + ' ' + 'stats';
     localStorage.setItem('myPet', JSON.stringify(pet));
     window.setInterval(savePet, 1000);
     hideElem();
@@ -25,12 +27,12 @@ function nameHandler() {
   }
   updateName(newName);
 }
-
+/** Hides input box and enter element once user types and enters in name */
 function hideElem() {
   document.querySelector('#setName').style.visibility = 'hidden';
   document.querySelector('#userText').style.visibility = 'hidden';
 }
-/** Creates a new pet. All attributes are set to 0. */
+/** Creates a new pet. All attributes are set to 100. */
 function newPet() {
   return {
     hungerness: 100,
@@ -94,8 +96,6 @@ function init() {
     const nameButton = document.querySelector('#setName');
     nameButton.addEventListener('click', nameHandler);
   }
-
-  // this should be every 10 seconds
 }
 
 
@@ -117,22 +117,18 @@ function startPet() {
   if (pet.happiness === null) {
     originalValues();
   }
-  // pet.sleepiness = 100;
   window.setInterval(decreaseSleep, 100);
   const sleepingElem = document.querySelector('#sleeping');
   sleepingElem.addEventListener('click', playing);
 
-  // pet.hungerness = 100;
   window.setInterval(decreaseHunger, 100);
   const hungerFeedElem = document.querySelector('#hungerfeed');
   hungerFeedElem.addEventListener('click', feed);
 
-  // pet.cleanliness = 100;
   window.setInterval(decreaseClean, 100);
   const cleaningElem = document.querySelector('#cleaning');
   cleaningElem.addEventListener('click', playingClean);
 
-  // pet.happiness = 100;
   const removeNameElem = document.querySelector('#resetPet');
   removeNameElem.addEventListener('click', removeName);
 }
@@ -143,8 +139,8 @@ function playing() {
 }
 
 function decreaseSleep() {
-  pet.sleepiness = pet.sleepiness - 0.1;
-  pet.happiness = pet.happiness - 0.1;
+  pet.sleepiness = pet.sleepiness - 0.25;
+  pet.happiness = pet.happiness - 0.11;
   if (pet.sleepiness < 0) {
     pet.sleepiness = 0;
   }
@@ -158,6 +154,8 @@ function decreaseSleep() {
 function updateSleepMeter() {
   const sleepElem = document.querySelector('#sleep');
   sleepElem.value = pet.sleepiness;
+  const sleepValue = document.querySelector('#sleepValue');
+  sleepValue.textContent = '  ' + pet.sleepiness;
 }
 
 // Hunger bar
@@ -173,7 +171,7 @@ function playingClean() {
 
 function decreaseHunger() {
   pet.hungerness = pet.hungerness - 0.25;
-  pet.happiness = pet.happiness - 0.1;
+  pet.happiness = pet.happiness - 0.11;
   if (pet.hungerness < 0) {
     pet.hungerness = 0;
   }
@@ -188,12 +186,14 @@ function decreaseHunger() {
 function updateHungerMeter() {
   const hungerElem = document.querySelector('#hunger');
   hungerElem.value = pet.hungerness;
+  const hungerValue = document.querySelector('#hungerValue');
+  hungerValue.textContent = '  ' + pet.hungerness;
 }
 
 
 function decreaseClean() {
-  pet.cleanliness = pet.cleanliness - 0.1;
-  pet.happiness = pet.happiness - 0.1;
+  pet.cleanliness = pet.cleanliness - 0.25;
+  pet.happiness = pet.happiness - 0.11;
   if (pet.cleanliness < 0) {
     pet.cleanliness = 0;
   }
@@ -207,38 +207,58 @@ function decreaseClean() {
 function adjustCleanMeters() {
   const cleanElem = document.querySelector('#clean');
   cleanElem.value = pet.cleanliness;
+  const cleanValue = document.querySelector('#cleanValue');
+  cleanValue.textContent = '  ' + pet.cleanliness;
 }
 
 
 function updateHappyMeter() {
   const happyElem = document.querySelector('#happy');
   happyElem.value = pet.happiness;
+  const happinessValue = document.querySelector('#happinessValue');
+  happinessValue.textContent = '  ' + pet.happiness;
 }
 
 
 function deathBoth() {
+  const petBlink1 = document.querySelector('#eye1');
+  const petBlink2 = document.querySelector('#eye2');
+  const petBlink3 = document.querySelector('#eye1-fill');
+  const petBlink4 = document.querySelector('#eye2-fill');
   if (pet.hungerness === 0 && pet.sleepiness === 0) {
     localStorage.clear();
+    petBlink1.style.display = 'none';
+    petBlink2.style.display = 'none';
+    petBlink3.style.display = 'none';
+    petBlink4.style.display = 'none';
     const petStatusBoth = document.querySelector('#petStatus');
-    petStatusBoth.textContent = 'Your pet has died due to hunger and lack of sleep, please refresh the page to continue playing';
+    petStatusBoth.textContent = 'Your pet has died due to hunger and lack of sleep, please refresh the page to restart';
   } else if (pet.hungerness === 0) {
     localStorage.clear();
+    petBlink1.style.display = 'none';
+    petBlink2.style.display = 'none';
+    petBlink3.style.display = 'none';
+    petBlink4.style.display = 'none';
+    const petStatusHunger = document.querySelector('#petStatus');
     document.querySelector('#hungerfeed').disabled = true;
     document.querySelector('#sleeping').disabled = true;
     document.querySelector('#cleaning').disabled = true;
     document.querySelector('#happiness').disabled = true;
     pet.happiness = 0;
-    const petStatusHunger = document.querySelector('#petStatus');
-    petStatusHunger.textContent = 'Your pet has died due to starvation, please refresh the page to continue playing';
+    petStatusHunger.textContent = 'Your pet has died due to starvation, please refresh the page to restart';
   } else if (pet.sleepiness === 0) {
     localStorage.clear();
+    petBlink1.style.display = 'none';
+    petBlink2.style.display = 'none';
+    petBlink3.style.display = 'none';
+    petBlink4.style.display = 'none';
     document.querySelector('#sleeping').disabled = true;
     document.querySelector('#hungerfeed').disabled = true;
     document.querySelector('#cleaning').disabled = true;
     document.querySelector('#happiness').disabled = true;
     pet.happiness = 0;
     const petStatusSleep = document.querySelector('#petStatus');
-    petStatusSleep.textContent = 'Your pet has died due to lack of sleep, please refresh the page to continue playing';
+    petStatusSleep.textContent = 'Your pet has died due to lack of sleep, please refresh the page to restart';
     clearInterval(savePet);
   }
 }
