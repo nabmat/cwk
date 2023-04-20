@@ -78,21 +78,9 @@
     font-weight: bold;
   } */
 
-/* #leftEye{
-    animation: blinking 3s infinite;
 
-}
 
-#rightEye{
-    animation: blinking 3s infinite;
-}
 
-@keyframes blinking {
-0% {transform: scale (1,1);}
-5% {transform: scale (1, 0.1);}
-10% {transform: scale (1,1);}
-100% {transform: scale (1,1);}
-} */
 
 /* grid-area: row-start col-start row-end col-end; */
 /* z-index allows overlap of layers */
@@ -106,10 +94,11 @@
     'header header'
     'main aside'
     'footer footer'; */
-  
-    body {
+
+body {
     background-color: #fdf4dc
 }
+
 
 #petName {
     font-size: 65px;
@@ -117,6 +106,7 @@
 
 #petStatus {
     font-size: 47px;
+    margin-right: -14px;
 }
 
 .stat {
@@ -126,11 +116,13 @@
     margin-bottom: -20px;
     margin-right: 40px;
 }
-.stat meter{
+
+.stat meter {
     height: 50px;
     width: 120px;
 }
-.stat p{
+
+.stat p {
     font-size: 40px;
 }
 
@@ -186,7 +178,7 @@
     border: 2px solid lightblue;
     margin-top: 10px;
 }
- 
+
 
 .item-6 {
     grid-area: 3 / 4 / 4 / 6;
@@ -201,26 +193,92 @@
     align-self: end;
 }
 
-#userText{
+
+#userText {
     border-radius: 10px;
     padding: 5px;
-    height: 45px ;
+    height: 45px;
     width: 300px;
     font-size: 50px;
     border: 3px solid black;
     margin-top: 50px;
 }
 
-#setName{
-height: 60px;
-width: 150px;
-font-size: 40px;
-background-color: #e5f5f4 ;
-border-radius: 10px;
-margin-top: 50px;
+#setName {
+    height: 60px;
+    width: 150px;
+    font-size: 40px;
+    background-color: #e5f5f4;
+    border-radius: 10px;
+    margin-top: 50px;
 }
 
+button:active {
+    background-color: aliceblue;
+}
 
+/* #eye1{
+    display: none;
+} */
 
+#eye1,
+#eye2 {
+    animation: blinking 2s infinite;
+}
 
-/* To change item 4 css flex can be used once learnt */
+/* #eye1-fill,
+#eye2-fill {
+    animation: hidden 2s infinite;
+} */
+.box {
+    width: 600px;
+    height: 400px;
+    border: 5px solid black;
+    grid-area: 4 / 3 / 4 / 4;
+    z-index: 1;
+    align-self: end;
+    justify-self: center;
+    margin-bottom: -250px;
+    padding: 10px;
+}
+
+.box p {
+    font-size: 30px;
+    align-self: start;
+}
+
+@keyframes blinking {
+    0% {
+        opacity: 1;
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes hidden {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
