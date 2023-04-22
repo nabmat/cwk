@@ -45,7 +45,14 @@ function newPet() {
 let timer = 0; // should be param of pet
 let petAlive;
 let checkInput;
+let score = 0;
 
+function updateScore() {
+  score++;
+  const scoreValue = document.querySelector('#scoreValue');
+  scoreValue.textContent = score + ' ';
+  // Just need to work on localstorage
+}
 
 function updateName(newName) {
   const nameElem = document.querySelector('#petName');
@@ -119,18 +126,27 @@ function startPet() {
   }
   window.setInterval(decreaseSleep, 100);
   const sleepingElem = document.querySelector('#sleeping');
-  sleepingElem.addEventListener('click', playing);
+  sleepingElem.addEventListener('click', () => {
+    playing();
+    updateScore();
+  });
 
   window.setInterval(decreaseHunger, 100);
   const hungerFeedElem = document.querySelector('#hungerfeed');
-  hungerFeedElem.addEventListener('click', feed);
+  hungerFeedElem.addEventListener('click', () => {
+    feed();
+    updateScore();
+  });
 
   window.setInterval(decreaseClean, 100);
   const cleaningElem = document.querySelector('#cleaning');
-  cleaningElem.addEventListener('click', playingClean);
+  cleaningElem.addEventListener('click', () => {
+    playingClean();
+    updateScore();
+  });
 
   const removeNameElem = document.querySelector('#resetPet');
-  removeNameElem.addEventListener('click', removeName);
+  removeNameElem.addEventListener('click', removeName, updateScore);
 }
 // Sleep bar
 function playing() {
@@ -219,43 +235,41 @@ function updateHappyMeter() {
   happinessValue.textContent = '  ' + pet.happiness;
 }
 
-
-function deathBoth() {
+function hideEyes() {
   const petBlink1 = document.querySelector('#eye1');
   const petBlink2 = document.querySelector('#eye2');
   const petBlink3 = document.querySelector('#eye1-fill');
   const petBlink4 = document.querySelector('#eye2-fill');
+  petBlink1.style.display = 'none';
+  petBlink2.style.display = 'none';
+  petBlink3.style.display = 'none';
+  petBlink4.style.display = 'none';
+}
+
+function hideButtons() {
+  document.querySelector('#hungerfeed').disabled = true;
+  document.querySelector('#sleeping').disabled = true;
+  document.querySelector('#cleaning').disabled = true;
+  document.querySelector('#happiness').disabled = true;
+}
+
+function deathBoth() {
   if (pet.hungerness === 0 && pet.sleepiness === 0) {
     localStorage.clear();
-    petBlink1.style.display = 'none';
-    petBlink2.style.display = 'none';
-    petBlink3.style.display = 'none';
-    petBlink4.style.display = 'none';
+    hideEyes();
     const petStatusBoth = document.querySelector('#petStatus');
     petStatusBoth.textContent = 'Your pet has died due to hunger and lack of sleep, please refresh the page to restart';
   } else if (pet.hungerness === 0) {
     localStorage.clear();
-    petBlink1.style.display = 'none';
-    petBlink2.style.display = 'none';
-    petBlink3.style.display = 'none';
-    petBlink4.style.display = 'none';
+    hideEyes();
     const petStatusHunger = document.querySelector('#petStatus');
-    document.querySelector('#hungerfeed').disabled = true;
-    document.querySelector('#sleeping').disabled = true;
-    document.querySelector('#cleaning').disabled = true;
-    document.querySelector('#happiness').disabled = true;
+    hideButtons();
     pet.happiness = 0;
     petStatusHunger.textContent = 'Your pet has died due to starvation, please refresh the page to restart';
   } else if (pet.sleepiness === 0) {
     localStorage.clear();
-    petBlink1.style.display = 'none';
-    petBlink2.style.display = 'none';
-    petBlink3.style.display = 'none';
-    petBlink4.style.display = 'none';
-    document.querySelector('#sleeping').disabled = true;
-    document.querySelector('#hungerfeed').disabled = true;
-    document.querySelector('#cleaning').disabled = true;
-    document.querySelector('#happiness').disabled = true;
+    hideEyes();
+    hideButtons();
     pet.happiness = 0;
     const petStatusSleep = document.querySelector('#petStatus');
     petStatusSleep.textContent = 'Your pet has died due to lack of sleep, please refresh the page to restart';
