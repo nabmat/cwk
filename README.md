@@ -1,14 +1,14 @@
 # Virtual Pet
 
 ## Features
-- 
-
-
-## TODO
-- Save pet every 10 second done 
-- If pet is saved with a name, dont ask for name
-- If pet saved skip original values done
-if pet not saved do orignial values
+- Buttons to feed the pet, make the pet sleep, clean the pet
+- Happiness is based soley on the other attributes
+- Attributes are viewable to the user both visually and numerically. 
+- User can name their pet 
+- Reset button if user decides to restart playing or if the pet has died 
+- If the pet has died user can refresh the page to have a new pet and will have to name it again
+- The name and attributes are saved so if a user clicks off the webpage or refreshes the web page whilst the pet is alive the attributes and the name will remain
+- The status of thet pet is displayed to the user. If the pet dies then it will tell the user the reason of death. 
 
 
 
