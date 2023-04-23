@@ -27,7 +27,7 @@
 
 ## Quick start
 
-firsrt to install deps
+first to install deps
 ```bash
 npm i
 ```
@@ -42,18 +42,18 @@ Here goes all the budgets
 
 ## What's included
 
-Some text
-
-```text
-folder1/
-└── folder2/
-    ├── folder3/
-    │   ├── file1
-    │   └── file2
-    └── folder4/
-        ├── file3
-        └── file4
 ```
+client
+ ┣ Images
+ ┃ ┗ pet svg.svg
+ ┣ index.html
+ ┣ index.js
+ ┗ style.css
+ package-lock.json
+ package.json
+ README.md
+ server.mjs
+ ```
 
 ## Bugs and feature requests
 
