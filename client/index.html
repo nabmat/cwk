@@ -3,19 +3,20 @@
 
 <head>
     <title>The virtual pet</title>
+    <meta charset="UTF-8">
     <link rel='stylesheet' href='style.css'>
     <script defer src='index.js' type='module'></script>
 </head>
 
 <body>
     <section class='container'>
-        <section class='item item-1'>
+        <section class='petsName'>
             <h1 id='petName'>Please enter a pet name to play</h1>
         </section>
-        <section class='item item-2'><label for='Name'></label>
+        <section class='input'><label for='Name'></label>
             <input id='userText'>&nbsp;&nbsp;<button id='setName'>Enter</button>
         </section>
-        <section class='item item-3'>
+        <section class='petsSvg'>
             <svg width='563px' height='572px' viewBox='0 0 563 572' version='1.1' xmlns='http://www.w3.org/2000/svg'
                 xmlns:xlink='http://www.w3.org/1999/xlink'>
                 <g id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
@@ -60,7 +61,7 @@
                     </g>
             </svg>
         </section>
-        <section class='item item-4'>
+        <section class='meterAttributes'>
             <section class='stat'>
                 <P>Hunger</P>
                 <meter id='hunger' min=0 max=100 value=0 low=20 high=45 optimum=50></meter>
@@ -72,7 +73,7 @@
                 <meter id='happy' min=0 max=100 value=0 low=20 high=45 optimum=50></meter>
             </section>
         </section>
-        <section class='item item-5'>
+        <section class='buttonAttributes'>
             <button id=hungerfeed>Feed</button>
             <button id=sleeping>Sleep</button>
             <button id=cleaning>Clean</button>
@@ -80,7 +81,7 @@
             <button id='resetPet'>Reset</button>
         </section>
 
-        <section class='item item-6'>
+        <section class='petState'>
             <h1 id='petStatus'>Your pet status will be displayed here</h1>
         </section class>
 
