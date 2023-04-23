@@ -1,5 +1,10 @@
 # Virtual Pet
 
+
+## Introduction
+This is a virtual pet where users can interact with the pet such as naming the pet, feeding, cleaning, putting the pet to sleep along with the happiness of the pet being dictated by the other attributes. LocalStorage has been used to store the pet name and the pets attributes due to the fact that if the user clicks off the webpage they will still have their pet there as it was. LocalStorage has also been used to hide the input text along with the Enter button. The reason for this is that if they do comeback to the webpage after clicking off then they will not be prompted to enter the name again or press enter. This is the reason why this was done on localStorage side instead of on the server just so the state of the pet is saved. 
+
+
 ## Features
 - Buttons to feed the pet, make the pet sleep, clean the pet
 - Happiness is based soley on the other attributes
@@ -9,20 +14,20 @@
 - If the pet has died user can refresh the page to have a new pet and will have to name it again
 - The name and attributes are saved so if a user clicks off the webpage or refreshes the web page whilst the pet is alive the attributes and the name will remain
 - The status of thet pet is displayed to the user. If the pet dies then it will tell the user the reason of death. 
-
+- The pet blinks through the use of animations and stops blinking once the pet has died 
+- Design has been made specifically for mobile users
+- If the user does not type in a name and presses enter the game will not run until the user has typed in a name
 
 
 
 ## Table of contents
 
 - [Quick start](#quick-start)
+- [Introduction](#introduction)
 - [Status](#status)
 - [What's included](#whats-included)
-- [Bugs and feature requests](#bugs-and-feature-requests)
-- [Contributing](#contributing)
 - [Creators](#creators)
 - [Thanks](#thanks)
-- [Copyright and license](#copyright-and-license)
 
 
 ## Quick start
@@ -32,8 +37,9 @@ first to install deps
 npm i
 ```
 then do 
-- Instruction 1
-- Instruction 2
+- npm start in terminal
+- open the server on a webpage which is 
+http://localhost:8080/
 - Instruction 3
 
 ## Status
@@ -55,17 +61,6 @@ client
  server.mjs
  ```
 
-## Bugs and feature requests
-
-Have a bug or a feature request? Please first read the [issue guidelines](https://reponame/blob/master/CONTRIBUTING.md) and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue](https://reponame/issues/new).
-
-## Contributing
-
-Please read through our [contributing guidelines](https://reponame/blob/master/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
-
-Moreover, all HTML and CSS should conform to the [Code Guide](https://github.com/mdo/code-guide), maintained by [Main author](https://github.com/usernamemainauthor).
-
-Editor preferences are available in the [editor config](https://reponame/blob/master/.editorconfig) for easy use in common text editors. Read more and download plugins at <https://editorconfig.org/>.
 
 ## Creators
 
@@ -75,10 +70,4 @@ Editor preferences are available in the [editor config](https://reponame/blob/ma
 
 ## Thanks
 
-Some Text
-
-## Copyright and license
-
-Code and documentation copyright 2011-2018 the authors. Code released under the [MIT License](https://reponame/blob/master/LICENSE).
-
-Enjoy :metal:
+Thank you for playing and it is much appreciated that you will go onto this webpage to interact with the pet. There is a huge ton of features which you can enjoy. 
