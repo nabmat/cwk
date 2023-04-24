@@ -23,7 +23,9 @@ This is a virtual pet where users can interact with the pet such as naming the p
 ## Table of contents
 
 - [Introduction](#introduction)
+- [Features](#features)
 - [Quick start](#quick-start)
+- [Layout](#layout)
 - [What's included](#whats-included)
 - [Creators](#creator)
 - [Thanks](#thanks)
@@ -63,6 +65,7 @@ The webpage has been designed specifically for mobile users and looks like this.
 client
  ┣ Images
  ┃ ┗ pet svg.svg
+ ┣ hideElements.mjs
  ┣ index.html
  ┣ index.js
  ┗ style.css
