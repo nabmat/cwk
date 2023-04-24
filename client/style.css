@@ -5,6 +5,7 @@ body {
 
 #petName {
     font-size: 65px;
+    text-align: center;
 }
 
 #petStatus {
@@ -123,18 +124,18 @@ button:active {
 
 .box {
     width: 600px;
-    height: 400px;
+    height: 550px;
     border: 5px solid black;
     grid-area: 4 / 3 / 4 / 4;
     z-index: 1;
     align-self: end;
     justify-self: center;
-    margin-bottom: -300px;
+    margin-bottom: -450px;
     padding: 10px;
 }
 
 .box p {
-    font-size: 30px;
+    font-size: 38px;
     align-self: start;
 }
 
