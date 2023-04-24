@@ -48,7 +48,8 @@ http://localhost:8080/
 
 The webpage has been designed specifically for mobile users and looks like this. 
 
-![Virtual pets layout](https://user-images.githubusercontent.com/114497854/233987789-ebbef749-c56b-414c-b4ae-b351f607e763.gif)
+<img src = 'https://user-images.githubusercontent.com/114497854/233987789-ebbef749-c56b-414c-b4ae-b351f607e763.gif' width = '224' height = '437px'>
+
 
 
 
