@@ -60,7 +60,7 @@ The webpage has been designed specifically for mobile users and looks like this.
 
 ## Bugs
 A list of bugs which have yet to be sorted
-- Pets timer for being alive will only if the user remains on the webpage, will not show if they click off and come back onto the webpage
+- The timer that shows how long the pet has lived for upon the death of the pet will only if the user remains on the webpage, will not show if they click off and come back onto the webpage
 - Meter attributes will continue to go down despite the fact that the pet has died
 
 
