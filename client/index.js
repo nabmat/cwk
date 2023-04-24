@@ -187,7 +187,7 @@ function startPet() {
  * The happiness meter will also be set to 100 if the sleep button is clicked
 */
 function playing() {
-  pet.sleepiness = 1;
+  pet.sleepiness = 100;
   pet.happiness = 100;
 }
 /** Decreases the sleep meter over time along with the happiness meter */
