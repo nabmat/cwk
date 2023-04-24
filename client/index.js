@@ -29,6 +29,7 @@ function nameHandler() {
   updateName(newName);
 }
 
+
 /** Creates a new pet. All attributes are set to 100. */
 function newPet() {
   return {
@@ -45,7 +46,6 @@ let timer = 0;
 let petAlive;
 let checkInput;
 let score = 0;
-
 
 /** Adds 1 to the scoreboard each time the user interacts with the pet through the buttons */
 function updateScore() {
@@ -184,7 +184,7 @@ function startPet() {
  * The happiness meter will also be set to 100 if the sleep button is clicked
 */
 function playing() {
-  pet.sleepiness = 1;
+  pet.sleepiness = 100;
   pet.happiness = 100;
 }
 /** Decreases the sleep meter over time along with the happiness meter */
@@ -287,21 +287,21 @@ function updateHappyMeter() {
  */
 function deathBoth() {
   if (pet.hungerness === 0 && pet.sleepiness === 0) {
-    localStorage.clear();
     hideEyes();
+    localStorage.clear();
     const petStatusBoth = document.querySelector('#petStatus');
     petStatusBoth.textContent = 'Your pet has died due to hunger and lack of sleep, please refresh the page to restart';
   } else if (pet.hungerness === 0) {
-    localStorage.clear();
     hideEyes();
-    const petStatusHunger = document.querySelector('#petStatus');
     hideButtons();
+    localStorage.clear();
     pet.happiness = 0;
+    const petStatusHunger = document.querySelector('#petStatus');
     petStatusHunger.textContent = 'Your pet has died due to starvation, please refresh the page to restart';
   } else if (pet.sleepiness === 0) {
-    localStorage.clear();
     hideEyes();
     hideButtons();
+    localStorage.clear();
     pet.happiness = 0;
     const petStatusSleep = document.querySelector('#petStatus');
     petStatusSleep.textContent = 'Your pet has died due to lack of sleep, please refresh the page to restart';
@@ -310,3 +310,5 @@ function deathBoth() {
 }
 
 init();
+
+// Need to change it so when pet dies it stops blinking immedietly
