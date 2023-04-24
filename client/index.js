@@ -20,7 +20,7 @@ function nameHandler() {
     userName.textContent = newName + '\'s' + ' ' + 'stats';
     localStorage.setItem('myPet', JSON.stringify(pet));
     window.setInterval(savePet, 1000);
-    hideElem();
+    hideUserInput();
   }
   if (pet.happiness === null) {
     originalValues();
@@ -28,10 +28,10 @@ function nameHandler() {
   updateName(newName);
 }
 /** Hides input box and enter button once user types and enters in name */
-function hideElem() {
+function hideUserInput() {
   document.querySelector('#setName').style.visibility = 'hidden';
   document.querySelector('#userText').style.visibility = 'hidden';
-  saveuserInput();
+  saveUserInput();
 }
 /** Creates a new pet. All attributes are set to 100. */
 function newPet() {
@@ -57,8 +57,8 @@ function updateScore() {
   const scoreValue = document.querySelector('#scoreValue');
   scoreValue.textContent = score + ' ';
   saveScoreValue();
-  // Just need to work on localstorage
 }
+
 /** Displays the users petname back to them replacing the header 1 tag */
 function updateName(newName) {
   const nameElem = document.querySelector('#petName');
@@ -73,7 +73,9 @@ function originalValues() {
   pet.hungerness = 100;
 }
 
-/** If the pets hunger and or the sleep level is 0 then stop the timer  */
+/** If the pets hunger and or the sleep level is 0 then stop the timer
+ * Keep on adding 1 to the timer each second
+*/
 function adjustTimer() {
   timer++;
   if (pet.hungerness === 0 || pet.sleepiness === 0) {
@@ -83,7 +85,7 @@ function adjustTimer() {
 }
 
 /** LocalStorage function which sets the input elements to remain hidden despite the uesr refreshing */
-function saveuserInput() {
+function saveUserInput() {
   localStorage.setItem('hideInput', true);
 }
 function saveScoreValue() {
@@ -107,21 +109,22 @@ function refreshPage() {
  * if the user clicks enter and there is a name in the input field then it runs the nameHandler function which displays the name to the user
  */
 function init() {
-  const refresh = document.querySelector('#resetPet');
-  refresh.addEventListener('click', refreshPage);
+  const reset = document.querySelector('#resetPet');
+  reset.addEventListener('click', refreshPage);
   const hideInput = localStorage.getItem('hideInput');
   if (hideInput) {
-    hideElem();
+    hideUserInput();
   }
   const scoreValues = (localStorage.getItem('savingScore'));
   if (scoreValues) {
     score = JSON.parse(scoreValues);
-    updateScore();
+    const scoreValue = document.querySelector('#scoreValue');
+    scoreValue.textContent = score + ' ';
   }
   if (JSON.parse(localStorage.getItem('myPet'))) {
-    const nameElem1 = document.querySelector('#petName');
+    const petName = document.querySelector('#petName');
     pet = JSON.parse(localStorage.getItem('myPet'));
-    nameElem1.textContent = pet.name;
+    petName.textContent = pet.name;
     startPet();
 
     window.setInterval(savePet, 1000);
@@ -140,7 +143,7 @@ function savePet() {
 }
 let pet = JSON.parse(localStorage.getItem('myPet')) ?? newPet();
 
-/** Checks if the boolean is true then stop checkign for user input as its already entered
+/** Checks if the boolean is true then stop checking for user input as its already entered
  * Start the pet and set a timer which will count down till the pets death
   */
 function checkStart() {
@@ -159,21 +162,21 @@ function startPet() {
   if (pet.happiness === null) {
     originalValues();
   }
-  window.setInterval(decreaseSleep, 100);
+  window.setInterval(decreaseSleep, 1000);
   const sleepingElem = document.querySelector('#sleeping');
   sleepingElem.addEventListener('click', () => {
     playing();
     updateScore();
   });
 
-  window.setInterval(decreaseHunger, 100);
+  window.setInterval(decreaseHunger, 1000);
   const hungerFeedElem = document.querySelector('#hungerfeed');
   hungerFeedElem.addEventListener('click', () => {
     feed();
     updateScore();
   });
 
-  window.setInterval(decreaseClean, 100);
+  window.setInterval(decreaseClean, 1000);
   const cleaningElem = document.querySelector('#cleaning');
   cleaningElem.addEventListener('click', () => {
     playingClean();
