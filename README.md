@@ -2,7 +2,7 @@
 
 
 ## Introduction
-This is a virtual pet where users can interact with the pet such as naming the pet, feeding, cleaning, putting the pet to sleep along with the happiness of the pet being dictated by the other attributes. LocalStorage has been used to store the pet name and the pets attributes due to the fact that if the user clicks off the webpage they will still have their pet there as it was. LocalStorage has also been used to hide the input text along with the Enter button. The reason for this is that if they do comeback to the webpage after clicking off then they will not be prompted to enter the name again or press enter. This is the reason why this was done on localStorage side instead of on the server just so the state of the pet is saved. 
+This is a virtual pet where users can interact with the pet such as naming the pet, feeding, cleaning, putting the pet to sleep along with the happiness of the pet being dictated by the other attributes. LocalStorage has been used to store the pet name and the pets attributes due to the fact that if the user clicks off the webpage they will still have their pet there as it was. LocalStorage has also been used to hide the input text along with the Enter button. The reason for this is that if they do comeback to the webpage after clicking off then they will not be prompted to enter the name again or press enter. This is the reason why this was done on localStorage side instead of on the server just so the state of the pet is saved. The happiness button does not work due to the fact that its based on the other attributes. 
 
 
 ## Features
@@ -40,11 +40,14 @@ then do
 - npm start in terminal
 - open the server on a webpage which is 
 http://localhost:8080/
-- Instruction 3
 
-## Status
+## Layout
 
-Here goes all the budgets
+The webpage has been designed specifically for mobile users and looks like this. 
+
+
+
+
 
 ## What's included
 
@@ -64,9 +67,12 @@ client
 
 ## Creators
 
-**Creator 1**
+- up211821
 
-- <https://github.com/usernamecreator1>
+
+
+
+
 
 ## Thanks
 
