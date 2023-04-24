@@ -83,7 +83,7 @@ function adjustTimer() {
   }
 }
 
-
+/** This function saves the value of the score to localStorage */
 function saveScoreValue() {
   localStorage.setItem('savingScore', score);
 }
