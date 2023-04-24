@@ -1,4 +1,5 @@
 'use strict';
+import { hideEyes, hideButtons, hideUserInput } from './hideElements.mjs';
 let start = false;
 
 
@@ -27,12 +28,7 @@ function nameHandler() {
   }
   updateName(newName);
 }
-/** Hides input box and enter button once user types and enters in name */
-function hideUserInput() {
-  document.querySelector('#setName').style.visibility = 'hidden';
-  document.querySelector('#userText').style.visibility = 'hidden';
-  saveUserInput();
-}
+
 /** Creates a new pet. All attributes are set to 100. */
 function newPet() {
   return {
@@ -84,10 +80,7 @@ function adjustTimer() {
   }
 }
 
-/** LocalStorage function which sets the input elements to remain hidden despite the uesr refreshing */
-function saveUserInput() {
-  localStorage.setItem('hideInput', true);
-}
+
 function saveScoreValue() {
   localStorage.setItem('savingScore', score);
 }
@@ -191,7 +184,7 @@ function startPet() {
  * The happiness meter will also be set to 100 if the sleep button is clicked
 */
 function playing() {
-  pet.sleepiness = 100;
+  pet.sleepiness = 1;
   pet.happiness = 100;
 }
 /** Decreases the sleep meter over time along with the happiness meter */
@@ -286,24 +279,6 @@ function updateHappyMeter() {
 }
 
 
-/** Hides all of the element of the eyes by selecting the html element and hiding it through the use of none */
-function hideEyes() {
-  const petBlink1 = document.querySelector('#eye1');
-  const petBlink2 = document.querySelector('#eye2');
-  const petBlink3 = document.querySelector('#eye1-fill');
-  const petBlink4 = document.querySelector('#eye2-fill');
-  petBlink1.style.display = 'none';
-  petBlink2.style.display = 'none';
-  petBlink3.style.display = 'none';
-  petBlink4.style.display = 'none';
-}
-/** Disables the use of the buttons */
-function hideButtons() {
-  document.querySelector('#hungerfeed').disabled = true;
-  document.querySelector('#sleeping').disabled = true;
-  document.querySelector('#cleaning').disabled = true;
-  document.querySelector('#happiness').disabled = true;
-}
 /** If the value of the pets hunger and or the sleep value is 0 then it will do the following
  * Clear localStorage
  * Hide the eyes by stopping it from blinking
