@@ -12,8 +12,7 @@ function nameHandler() {
   const newName = nameInputElem.value;
   const userName = document.querySelector('#userName');
   if (nameInputElem.value.length === 0) {
-    alert('this id not a name');
-    // display error message
+    alert('this is not a name you can only play once you have entered a pet name');
   } else {
     start = true;
     pet = newPet();
@@ -71,12 +70,16 @@ function originalValues() {
 
 /** If the pets hunger and or the sleep level is 0 then stop the timer
  * Keep on adding 1 to the timer each second
+ * If the pet does die the timer will display how long the pet was alive for
 */
 function adjustTimer() {
+  const userNameInput = document.querySelector('#userText');
+  const newPetName = userNameInput.value;
+  const petName = document.querySelector('#petName');
   timer++;
   if (pet.hungerness === 0 || pet.sleepiness === 0) {
     clearInterval(petAlive);
-    alert('Your pet was alive for ' + timer + ' seconds');
+    petName.textContent = 'Your pet ' + newPetName + ' was alive for ' + timer + ' seconds';
   }
 }
 
@@ -184,7 +187,7 @@ function startPet() {
  * The happiness meter will also be set to 100 if the sleep button is clicked
 */
 function playing() {
-  pet.sleepiness = 100;
+  pet.sleepiness = 1;
   pet.happiness = 100;
 }
 /** Decreases the sleep meter over time along with the happiness meter */
@@ -287,21 +290,21 @@ function updateHappyMeter() {
  */
 function deathBoth() {
   if (pet.hungerness === 0 && pet.sleepiness === 0) {
-    hideEyes();
     localStorage.clear();
+    hideEyes();
     const petStatusBoth = document.querySelector('#petStatus');
     petStatusBoth.textContent = 'Your pet has died due to hunger and lack of sleep, please refresh the page to restart';
   } else if (pet.hungerness === 0) {
+    localStorage.clear();
     hideEyes();
     hideButtons();
-    localStorage.clear();
     pet.happiness = 0;
     const petStatusHunger = document.querySelector('#petStatus');
     petStatusHunger.textContent = 'Your pet has died due to starvation, please refresh the page to restart';
   } else if (pet.sleepiness === 0) {
+    localStorage.clear();
     hideEyes();
     hideButtons();
-    localStorage.clear();
     pet.happiness = 0;
     const petStatusSleep = document.querySelector('#petStatus');
     petStatusSleep.textContent = 'Your pet has died due to lack of sleep, please refresh the page to restart';
@@ -310,5 +313,3 @@ function deathBoth() {
 }
 
 init();
-
-// Need to change it so when pet dies it stops blinking immedietly
