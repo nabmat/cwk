@@ -22,11 +22,10 @@ This is a virtual pet where users can interact with the pet such as naming the p
 
 ## Table of contents
 
-- [Quick start](#quick-start)
 - [Introduction](#introduction)
-- [Status](#status)
+- [Quick start](#quick-start)
 - [What's included](#whats-included)
-- [Creators](#creators)
+- [Creators](#creator)
 - [Thanks](#thanks)
 
 
@@ -36,14 +35,22 @@ first to install deps
 ```bash
 npm i
 ```
-then do 
-- npm start in terminal
+to start run in terminal
+
+```
+npm start
+```
+then  
 - open the server on a webpage which is 
 http://localhost:8080/
 
 ## Layout
 
 The webpage has been designed specifically for mobile users and looks like this. 
+
+![Virtual pets layout](https://user-images.githubusercontent.com/114497854/233987789-ebbef749-c56b-414c-b4ae-b351f607e763.gif)
+
+
 
 
 
@@ -65,7 +72,7 @@ client
  ```
 
 
-## Creators
+## Creator
 
 - up211821
 
