@@ -63,8 +63,6 @@ The webpage has been designed specifically for mobile users and looks like this.
 
 ```
 client
- ┣ Images
- ┃ ┗ pet svg.svg
  ┣ hideElements.mjs
  ┣ index.html
  ┣ index.js
